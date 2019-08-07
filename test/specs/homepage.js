@@ -1,6 +1,8 @@
 import { assert } from 'chai';
 import exp from '../expected/homepage.exp';
 import sel from '../selectors/homepage.sel';
+import regSel from '../selectors/register.sel';
+import help from '../helpers/helpers';
 
 describe('Client', function () { //define suite title by passing a string
 
@@ -13,6 +15,22 @@ describe('Client', function () { //define suite title by passing a string
   it('Title and version', function () {
     let title = $(sel.siteName).getText();
     assert.equal(title, exp.titleVersion);
+  })
+
+});
+
+describe('Elements visible', function () {
+
+  help.elementsVisible(Object.values(sel));
+
+});
+
+describe('Functional', function () {
+
+  it(sel.createAccBtn, function () {
+    $(sel.createAccBtn).click();
+    let visible = $(regSel.h1).waitForDisplayed()
+    assert.isTrue(visible);
   })
 
 });
