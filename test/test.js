@@ -13,4 +13,9 @@ describe('Client', function () { //define suite title by passing a string
     assert.equal(title, 'Progress Monitor 0.1.61');
   })
 
+  it('Title and version', function () {
+    let title = $('#site-name').getText();
+    assert.equal(title, 'Progress Monitor 0.1.61');
+  })
+
 });
